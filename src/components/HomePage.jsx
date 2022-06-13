@@ -9,6 +9,7 @@ const HomePage = () => {
 
   useEffect(() => {
     handleSearch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSearch = async (e) => {
@@ -51,9 +52,17 @@ const HomePage = () => {
         <Col>
           <h1>Job List</h1>
           <ListGroup>
-            {searchResults.map((job) => (
-              <JobPage key={job._id} job={job} />
-            ))}
+            {searchResults
+              //   .filter(
+              //     (job) =>
+              //       job.category
+              //         .toLowerCase()
+              //         .includes(searchQuery.toLowerCase()) ||
+              //       job.category.toUpperCase().includes(searchQuery.toUpperCase())
+              //   )
+              .map((job) => (
+                <JobPage key={job._id} job={job} />
+              ))}
           </ListGroup>
         </Col>
       </Row>
