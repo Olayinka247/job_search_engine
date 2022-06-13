@@ -32,7 +32,7 @@ const HomePage = () => {
         <Col>
           <Form>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>Job Search</Form.Label>
+              <Form.Label></Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Search"

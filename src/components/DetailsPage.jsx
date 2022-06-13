@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Container, Row, Col, ListGroup } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import SingleJobDetails from "./SingleJobDetails";
 
 const DetailsPage = () => {
   const params = useParams().company;
@@ -17,28 +18,28 @@ const DetailsPage = () => {
   const handleGetJob = async () => {
     try {
       let response = await fetch(
-        "https://strive-jobs-api.herokuapp.com/jobs?company=" + params
+        `https://strive-jobs-api.herokuapp.com/jobs?company=` + params
       );
       if (response.ok) {
         let data = await response.json();
-        setJobInformation(data);
-        console.log(data);
+        console.log("HERE IS THE DATA", data);
+        setJobInformation(data.data);
       }
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <Container>
       <Row>
         <Col>
-          <h1>Job Details</h1>
-          <ListGroup>
-            <ListGroup.Item>{jobInformation.title}</ListGroup.Item>
-            <ListGroup.Item>{jobInformation.company_name}</ListGroup.Item>
-            <ListGroup.Item>{jobInformation.location}</ListGroup.Item>
-            <ListGroup.Item>{jobInformation.description}</ListGroup.Item>
-          </ListGroup>
+          <h3 className="d-flex text-center">Job Details of {params}</h3>
+          <>
+            {jobInformation.map((job) => (
+              <SingleJobDetails key={job._id} job={job} />
+            ))}
+          </>
         </Col>
       </Row>
     </Container>

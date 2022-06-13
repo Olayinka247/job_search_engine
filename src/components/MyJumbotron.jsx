@@ -1,9 +1,9 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Jumbotron } from "react-bootstrap";
 
-export default function Jumbotron() {
+export default function MyJumbotron() {
   return (
-    <Jumbotron fluid>
+    <Jumbotron>
       <Container>
         <h1>Welcome To Strive Jobs</h1>
         <p>Here is your job search at a glance.</p>

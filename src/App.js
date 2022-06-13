@@ -4,16 +4,16 @@ import HomePage from "./components/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DetailsPage from "./components/DetailsPage";
 import NavBar from "./components/NavBar";
-import Jumbotron from "./components/Jumbotron";
+import MyJumbotron from "./components/MyJumbotron";
 
 function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <Jumbotron />
+      <MyJumbotron />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/home" element={<DetailsPage />} />
+        <Route path="/:company" element={<DetailsPage />} />
       </Routes>
     </BrowserRouter>
   );
