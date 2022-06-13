@@ -45,7 +45,9 @@ const HomePage = () => {
       </Row>
       <Row>
         <Col className="mb-3">
-          <button onClick={handleSearch}>Search Jobs</button>
+          <button className="text-center" onClick={handleSearch}>
+            Search Jobs
+          </button>
         </Col>
       </Row>
       <Row>
@@ -53,13 +55,13 @@ const HomePage = () => {
           <h1>Job List</h1>
           <ListGroup>
             {searchResults
-              //   .filter(
-              //     (job) =>
-              //       job.category
-              //         .toLowerCase()
-              //         .includes(searchQuery.toLowerCase()) ||
-              //       job.category.toUpperCase().includes(searchQuery.toUpperCase())
-              //   )
+              .filter(
+                (job) =>
+                  job.category
+                    .toLowerCase()
+                    .includes(searchQuery.toLowerCase()) ||
+                  job.category.toUpperCase().includes(searchQuery.toUpperCase())
+              )
               .map((job) => (
                 <JobPage key={job._id} job={job} />
               ))}

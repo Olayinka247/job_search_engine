@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import SingleJobDetails from "./SingleJobDetails";
 
@@ -34,7 +34,10 @@ const DetailsPage = () => {
     <Container>
       <Row>
         <Col>
-          <h3 className="d-flex text-center">Job Details of {params}</h3>
+          <h3 className="d-flex text-center mt-3 ">Job Details of {params}</h3>
+          <Button variant="primary" className="my-3 d-flex text-center">
+            Apply Now !
+          </Button>
           <>
             {jobInformation.map((job) => (
               <SingleJobDetails key={job._id} job={job} />

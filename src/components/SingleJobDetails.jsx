@@ -12,7 +12,9 @@ export default function SingleJobDetails({ job }) {
             <ListGroup.Item>{job.publication_date}</ListGroup.Item>
             <ListGroup.Item>{job.category}</ListGroup.Item>
             <ListGroup.Item>{job.job_type}</ListGroup.Item>
-            <ListGroup.Item>{job.description}</ListGroup.Item>
+            <ListGroup.Item
+              dangerouslySetInnerHTML={{ __html: job.description }}
+            ></ListGroup.Item>
           </ListGroup>
         </Col>
       </Row>
